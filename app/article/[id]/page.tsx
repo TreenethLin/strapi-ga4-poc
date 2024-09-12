@@ -79,7 +79,10 @@ export default async function StrapiArticlePage({ params }: { params: { id: stri
         <div className="flex justify-center items-center">
         {article.attributes.cta_url && (
           <Button asChild className="mt-6 p-6 font-bold text-lg">
-            <a href={article.attributes.cta_url}>
+            <a 
+            href={article.attributes.cta_url}
+            target="_blank" 
+            >
                 {article.attributes.cta_btn}
             </a>
           </Button>

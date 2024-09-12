@@ -22,7 +22,7 @@ export default async function StrapiArticlesPage() {
               {article.attributes.cover?.data && (
                 <div className="relative h-48 w-full mb-4">
                   <Image
-                    src={article.attributes.cover.data.attributes.formats.medium.url}
+                    src={`${process.env.NEXT_PUBLIC_STRAPI_BASE_URL}${article.attributes.cover.data.attributes.formats.thumbnail.url}`}
                     alt={article.attributes.title || 'Article cover'}
                     fill
                     className="object-cover rounded-t-lg"
