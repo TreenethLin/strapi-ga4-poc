@@ -10,7 +10,7 @@ import { Components } from 'react-markdown'
 import { ArrowLeft } from 'lucide-react'
 import { Article } from '@/types/article'
 
-const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL
+const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'
 
 const getImageUrl = (url: string) => {
   if (url.startsWith('http')) {
