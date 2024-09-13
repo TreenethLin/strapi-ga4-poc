@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import ReactMarkdown from 'react-markdown'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
-export const revalidate = 30 // revalidate at most every 30 seconds
+export const revalidate = 10 // revalidate at most every 10 seconds
 
 export default async function StrapiArticlesPage() {
   const articles = await getArticles()
@@ -37,7 +37,16 @@ export default async function StrapiArticlesPage() {
                 Release Date: {new Date(article.attributes.release).toLocaleDateString()}
               </p>
               <div className="prose dark:prose-invert line-clamp-3">
-                <ReactMarkdown>{article.attributes.content}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  img: () => null,
+                  p: ({ children }) => <p>{children}</p>,
+                  strong: ({ children }) => <strong>{children}</strong>,
+                  em: ({ children }) => <em>{children}</em>,
+                  }}
+                >
+                {article.attributes.content}
+              </ReactMarkdown>
               </div>
             </CardContent>
             <CardFooter>

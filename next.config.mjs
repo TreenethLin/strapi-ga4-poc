@@ -9,7 +9,7 @@ const nextConfig = {
           },
           {
             protocol: 'https',
-            hostname: 'dashboard.looklook.pet',
+            hostname: 'strapi.looklook.pet',
             pathname: '**',
           },
         ],
